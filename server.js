@@ -6,9 +6,9 @@ import express from 'express'
 const args = minimist(process.argv.slice(2))
 const app = express()
 
-let port = args.port || 5000;
+let port = args.port
 if (typeof(args.port) == "boolean") {
-    port = 5000;
+    port = 5000
 }
 
 // Setup usage of express
