@@ -6,9 +6,13 @@ import express from 'express'
 const args = minimist(process.argv.slice(2))
 const app = express()
 
-const port = argv.port || 5000
+let port = args.port || 5000;
+if (typeof(args.port) == "boolean") {
+    port = 5000;
+}
 
-app.use(express.urlencoded({ extended: true }))
+// Setup usage of express
+app.use(express.urlencoded({extended: true}));
 
 app.get("/app", (req,res) => {
     res.status(200).send("200 OK")
